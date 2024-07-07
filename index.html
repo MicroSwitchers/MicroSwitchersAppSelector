@@ -45,31 +45,34 @@
 
     .title-container {
       flex: 1;
-      min-width: 200px;
+      min-width: 0;
+      overflow: hidden;
     }
 
     .title-container h1 {
       margin: 0;
-      font-size: 30px;
+      font-size: 24px;
       font-weight: 700;
       text-align: left;
+      white-space: nowrap;
     }
 
     .title-container h2 {
       margin: 0;
-      font-size: 22px;
+      font-size: 16px;
       font-weight: 400;
       text-align: left;
       color: #f5725d;
+      white-space: nowrap;
     }
 
     .logo-container {
       flex: 0 0 auto;
-      margin-left: 20px;
+      margin-left: 10px;
     }
 
     .logo-container img {
-      max-width: 150px;
+      max-width: 100px;
       border-radius: 10px;
     }
 
@@ -228,15 +231,15 @@
       }
 
       .title-container h1 {
-        font-size: 24px;
+        font-size: 20px;
       }
 
       .title-container h2 {
-        font-size: 18px;
+        font-size: 14px;
       }
 
       .logo-container img {
-        max-width: 100px;
+        max-width: 80px;
       }
 
       nav {
