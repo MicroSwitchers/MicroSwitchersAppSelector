@@ -1,343 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Select an App</title>
-  <style>
-    /* Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
-    /* Global Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #2c2c2c;
-      color: #e0e0e0;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    /* Header Styles */
-    header {
-      background-color: #333;
-      color: #ffffff;
-      padding: 20px;
-      border-radius: 10px 10px 0 0;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0;
-      flex-wrap: wrap;
-    }
-
-    .title-container {
-      flex: 1;
-      min-width: 0;
-      overflow: hidden;
-    }
-
-    .title-container h1 {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 700;
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .title-container h2 {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 400;
-      text-align: left;
-      color: #f5725d;
-      white-space: nowrap;
-    }
-
-    .logo-container {
-      flex: 0 0 auto;
-      margin-left: 10px;
-    }
-
-    .logo-container img {
-      max-width: 100px;
-      border-radius: 10px;
-    }
-
-    /* Navigation Styles */
-    nav {
-      background-color: #3e3d3d;
-      padding: 10px;
-      text-align: center;
-      border-radius: 0 0 10px 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
-      margin-top: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      padding: 10px 20px;
-      margin: 5px;
-      border-radius: 5px;
-      font-weight: 500;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      flex: 1 1 200px;
-      max-width: 200px;
-    }
-
-    nav a.calculator-apps {
-      color: #bb86fc;
-    }
-
-    nav a.single-switch-apps {
-      color: #03dac6;
-    }
-
-    nav a.microcontroller-devices {
-      color: #ffa726;
-    }
-
-    nav a.experimental-projects {
-      color: #82b1ff;
-    }
-
-    nav a:hover {
-      background-color: #555;
-      color: #ffffff;
-    }
-
-    /* App Section Styles */
-    .app-section {
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-      margin-bottom: 30px;
-      background-color: #424242;
-    }
-
-    .app-section h2 {
-      margin-top: 0;
-      font-size: 24px;
-      font-weight: 700;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-
-    .app-section ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .app-section li {
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-    .app-section img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-      border-radius: 8px;
-    }
-
-    .app-section a {
-      color: #e0e0e0;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: 500;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      padding: 10px;
-      display: block;
-      border-radius: 5px;
-    }
-
-    .app-section a:hover {
-      background-color: #555;
-    }
-
-    /* Section Specific Colors */
-    #calculator-apps h2 {
-      color: #bb86fc;
-      border-bottom: 2px solid #bb86fc;
-    }
-
-    #single-switch-apps {
-      background-color: #3c3c3c;
-    }
-
-    #single-switch-apps h2 {
-      color: #03dac6;
-      border-bottom: 2px solid #03dac6;
-    }
-
-    #microcontroller-devices {
-      background-color: #484848;
-    }
-
-    #microcontroller-devices h2 {
-      color: #ffa726;
-      border-bottom: 2px solid #ffa726;
-    }
-
-    #experimental-projects {
-      background-color: #505050;
-    }
-
-    #experimental-projects h2 {
-      color: #82b1ff;
-      border-bottom: 2px solid #82b1ff;
-    }
-
-    /* Credit Styles */
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #aaaaaa;
-      border-top: 1px solid #444;
-      margin-top: 30px;
-    }
-
-    footer a {
-      color: #03dac6;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      .container {
-        padding: 10px;
-      }
-
-      .title-container h1 {
-        font-size: 20px;
-      }
-
-      .title-container h2 {
-        font-size: 14px;
-      }
-
-      .logo-container img {
-        max-width: 80px;
-      }
-
-      nav {
-        flex-direction: column;
-      }
-
-      nav a {
-        flex: none;
-        max-width: none;
-        width: 100%;
-      }
-
-      .app-section {
-        padding: 20px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Activation Tester</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-color: #f0f0f0;
+            --card-background: #ffffff;
+            --text-color: #333333;
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        .container {
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            width: 100%;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+        @media (min-width: 600px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .button-category {
+            background-color: rgba(52, 152, 219, 0.05);
+            border-radius: 10px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        .button-category:hover {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        .button-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 150px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .pushed {
+            background-color: var(--secondary-color) !important;
+            color: white;
+            transform: translateY(1px);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .indicator {
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+            background-color: var(--border-color);
+            transition: all 0.3s ease;
+            border-radius: 50%;
+        }
+        .indicator.active {
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+        }
+        input[type="number"] {
+            width: 60px;
+            padding: 8px;
+            margin-right: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        #timerContainer {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        label {
+            font-size: 14px;
+            color: var(--text-color);
+        }
+        #logContainer {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: rgba(52, 152, 219, 0.05);
+            border-radius: 10px;
+            height: 150px;
+            overflow: hidden;
+            resize: vertical;
+            min-height: 100px;
+            max-height: 400px;
+        }
+        #logList {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            height: calc(100% - 30px);
+            overflow-y: auto;
+        }
+        #logList li {
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        #logHeader {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        #clearLog {
+            background-color: #e74c3c;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        #clearLog:hover {
+            background-color: #c0392b;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="title-container">
-        <h1>MicroSwitchers</h1>
-        <h2>App Selector</h2>
-      </div>
-      <div class="logo-container">
-        <img src="logocut.png" alt="MicroSwitchers Logo">
-      </div>
-    </header>
+    <div class="container">
+        <h1>Button Activation Tester</h1>
+        
+        <div class="grid">
+            <div class="button-category">
+                <h2>Instant Feedback</h2>
+                <div class="button-container">
+                    <button id="autoRelease">Auto Release</button>
+                    <div id="autoReleaseIndicator" class="indicator"></div>
+                </div>
+                <div class="button-container">
+                    <button id="normalActivation">Normal Activation</button>
+                    <div id="normalActivationIndicator" class="indicator"></div>
+                </div>
+            </div>
+            
+            <div class="button-category">
+                <h2>Timed Behavior</h2>
+                <div class="button-container">
+                    <button id="timerRelease">Timer Release</button>
+                    <div id="timerReleaseIndicator" class="indicator"></div>
+                </div>
+                <div id="timerContainer">
+                    <input type="number" id="timerDuration" min="1" value="5">
+                    <label for="timerDuration">seconds</label>
+                </div>
+            </div>
+            
+            <div class="button-category">
+                <h2>Toggled State</h2>
+                <div class="button-container">
+                    <button id="toggleButton">Toggle Button</button>
+                    <div id="toggleButtonIndicator" class="indicator"></div>
+                </div>
+            </div>
 
-    <nav>
-      <a href="#calculator-apps" class="calculator-apps">Calculator Apps</a>
-      <a href="#single-switch-apps" class="single-switch-apps">Single Switch Apps</a>
-      <a href="#microcontroller-devices" class="microcontroller-devices">Microcontroller Devices</a>
-      <a href="#experimental-projects" class="experimental-projects">Experimental Projects</a>
-    </nav>
+            <div class="button-category">
+                <h2>Double-Click</h2>
+                <div class="button-container">
+                    <button id="doubleClickButton">Double-Click</button>
+                    <div id="doubleClickIndicator" class="indicator"></div>
+                </div>
+            </div>
 
-    <section class="app-section" id="calculator-apps">
-      <h2>Calculator Apps</h2>
-      <ul>
-        <li>
-          <img src="image1.png" alt="CVI Range Rating II Calculator Screenshot">
-          <a href="https://microswitchers.github.io/RangeCalc/">CVI Range Rating II Calculator</a>
-        </li>
-        <li>
-          <img src="image2.png" alt="Age by Weeks and Category Calculator Screenshot">
-          <a href="https://microswitchers.github.io/agebyweekscalc/">Age by Weeks and Category Calculator</a>
-        </li>
-        <li>
-          <img src="image3.png" alt="Date Incrementing Calendar Screenshot">
-          <a href="https://microswitchers.github.io/datecyclecal/">Date Incrementing Calendar</a>
-        </li>
-      </ul>
-    </section>
+            <div class="button-category">
+                <h2>Long Press</h2>
+                <div class="button-container">
+                    <button id="longPressButton">Long Press</button>
+                    <div id="longPressIndicator" class="indicator"></div>
+                </div>
+            </div>
 
-    <section class="app-section" id="single-switch-apps">
-      <h2>Single Switch Apps</h2>
-      <ul>
-        <li>
-          <img src="image4.png" alt="Cause and Effect Fireworks Screenshot">
-          <a href="https://microswitchers.github.io/fireworks/">Cause and Effect Fireworks</a>
-        </li>
-        <li>
-          <img src="image5.png" alt="Cause and Effect Sensory Bag Screenshot">
-          <a href="https://microswitchers.github.io/sensorybag/">Cause and Effect Sensory Bag</a>
-        </li>
-        <li>
-          <img src="image6.png" alt="Cause and Effect Ball Drop Screenshot">
-          <a href="https://microswitchers.github.io/bouncingballs/">Cause and Effect Ball Drop</a>
-        </li>
-      </ul>
-    </section>
+            <div class="button-category">
+                <h2>Hover Activation</h2>
+                <div class="button-container">
+                    <button id="hoverButton">Hover</button>
+                    <div id="hoverIndicator" class="indicator"></div>
+                </div>
+            </div>
+        </div>
 
-    <section class="app-section" id="microcontroller-devices">
-      <h2>Microcontroller Devices</h2>
-      <ul>
-        <li>
-          <img src="microcontroller.png" alt="Microcontroller Device Screenshot">
-          <a href="https://github.com/MicroSwitchers/3-Function-Cause-and-Effect-Single-Switch-Port">3-Function Cause and Effect Single Switch Port</a>
-        </li>
-      </ul>
-    </section>
+        <div id="logContainer">
+            <div id="logHeader">
+                <h2>Action Log</h2>
+                <button id="clearLog">Clear Log</button>
+            </div>
+            <ul id="logList"></ul>
+        </div>
+    </div>
 
-    <section class="app-section" id="experimental-projects">
-      <h2>Experimental Projects</h2>
-      <ul>
-        <li>
-          <img src="buttontest.png" alt="Assistive Device Activation Tester Screenshot">
-          <a href="https://microswitchers.github.io/SwitchandButtonTester/">Assistive Device Activation Tester</a>
-        </li>
-      </ul>
-    </section>
+    <script>
+        function setIndicator(buttonId, active) {
+            const indicator = document.getElementById(buttonId + 'Indicator');
+            if (active) {
+                indicator.classList.add('active');
+            } else {
+                indicator.classList.remove('active');
+            }
+        }
 
-    <footer>
-      Created by Niall Brown - Early Childhood Vision Consultant (ECVC), with assistance from AI.
-      <br>
-      <a href="https://github.com/MicroSwitchers?tab=repositories">View more on GitHub</a>
-    </footer>
-  </div>
+        function logAction(action) {
+            const logList = document.getElementById('logList');
+            const logItem = document.createElement('li');
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour12: false, 
+                hour: '2-digit', minute:'2-digit', second:'2-digit', fractionalSecondDigits: 3 });
+            logItem.textContent = `${timeString} - ${action}`;
+            logList.insertBefore(logItem, logList.firstChild);
+        }
+
+        // Clear log functionality
+        document.getElementById('clearLog').addEventListener('click', function() {
+            document.getElementById('logList').innerHTML = '';
+        });
+
+        // Auto Release Button
+        document.getElementById('autoRelease').addEventListener('mousedown', function() {
+            this.classList.add('pushed');
+            setIndicator('autoRelease', true);
+            logAction('Auto Release: Mouse Down');
+            setTimeout(() => {
+                this.classList.remove('pushed');
+                setIndicator('autoRelease', false);
+                logAction('Auto Release: Auto Up');
+            }, 200);
+        });
+
+        // Normal Activation Button
+        const normalActivation = document.getElementById('normalActivation');
+        normalActivation.addEventListener('mousedown', function() {
+            this.classList.add('pushed');
+            setIndicator('normalActivation', true);
+            logAction('Normal Activation: Mouse Down');
+        });
+        normalActivation.addEventListener('mouseup', function() {
+            this.classList.remove('pushed');
+            setIndicator('normalActivation', false);
+            logAction('Normal Activation: Mouse Up');
+        });
+        normalActivation.addEventListener('mouseleave', function() {
+            if (this.classList.contains('pushed')) {
+                this.classList.remove('pushed');
+                setIndicator('normalActivation', false);
+                logAction('Normal Activation: Mouse Leave');
+            }
+        });
+
+        // Timer Release Button
+        const timerReleaseBtn = document.getElementById('timerRelease');
+        const timerDurationInput = document.getElementById('timerDuration');
+        
+        timerReleaseBtn.addEventListener('click', function() {
+            if (!this.classList.contains('pushed')) {
+                const duration = parseInt(timerDurationInput.value, 10) * 1000; // Convert to milliseconds
+                this.classList.add('pushed');
+                setIndicator('timerRelease', true);
+                logAction(`Timer Release: Activated (${timerDurationInput.value}s)`);
+                setTimeout(() => {
+                    this.classList.remove('pushed');
+                    setIndicator('timerRelease', false);
+                    logAction('Timer Release: Deactivated');
+                }, duration);
+            }
+        });
+
+        // Toggle Button
+        document.getElementById('toggleButton').addEventListener('click', function() {
+            this.classList.toggle('pushed');
+            const isActive = this.classList.contains('pushed');
+            setIndicator('toggleButton', isActive);
+            logAction(`Toggle Button: ${isActive ? 'Activated' : 'Deactivated'}`);
+        });
+
+        // Double-Click Button
+        const doubleClickButton = document.getElementById('doubleClickButton');
+        let lastClickTime = 0;
+        doubleClickButton.addEventListener('click', function() {
+            const currentTime = new Date().getTime();
+            logAction('Double-Click: Single Click');
+            if (currentTime - lastClickTime < 300) {
+                this.classList.add('pushed');
+                setIndicator('doubleClick', true);
+                logAction('Double-Click: Activated');
+                setTimeout(() => {
+                    this.classList.remove('pushed');
+                    setIndicator('doubleClick', false);
+                    logAction('Double-Click: Deactivated');
+                }, 500);
+            }
+            lastClickTime = currentTime;
+        });
+
+        // Long Press Button
+        const longPressButton = document.getElementById('longPressButton');
+        let pressTimer;
+        longPressButton.addEventListener('mousedown', function() {
+            logAction('Long Press: Mouse Down');
+            pressTimer = setTimeout(() => {
+                this.classList.add('pushed');
+                setIndicator('longPress', true);
+                logAction('Long Press: Activated');
+            }, 1000);
+        });
+        longPressButton.addEventListener('mouseup', function() {
+            clearTimeout(pressTimer);
+            if (this.classList.contains('pushed')) {
+                this.classList.remove('pushed');
+                setIndicator('longPress', false);
+                logAction('Long Press: Mouse Up (After Activation)');
+            } else {
+                logAction('Long Press: Mouse Up (Before Activation)');
+            }
+        });
+        longPressButton.addEventListener('mouseleave', function() {
+            clearTimeout(pressTimer);
+            if (this.classList.contains('pushed')) {
+                this.classList.remove('pushed');
+                setIndicator('longPress', false);
+                logAction('Long Press: Mouse Leave (After Activation)');
+            } else {
+                logAction('Long Press: Mouse Leave (Before Activation)');
+            }
+        });
+
+        // Hover Activation Button
+        const hoverButton = document.getElementById('hoverButton');
+        hoverButton.addEventListener('mouseenter', function() {
+            this.classList.add('pushed');
+            setIndicator('hover', true);
+            logAction('Hover: Mouse Enter');
+        });
+        hoverButton.addEventListener('mouseleave', function() {
+            this.classList.remove('pushed');
+            setIndicator('hover', false);
+            logAction('Hover: Mouse Leave');
+        });
+    </script>
 </body>
 </html>
