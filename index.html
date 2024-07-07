@@ -40,10 +40,12 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 0;
+      flex-wrap: wrap;
     }
 
     .title-container {
       flex: 1;
+      min-width: 200px;
     }
 
     .title-container h1 {
@@ -92,6 +94,8 @@
       border-radius: 5px;
       font-weight: 500;
       transition: background-color 0.3s ease, color 0.3s ease;
+      flex: 1 1 200px;
+      max-width: 200px;
     }
 
     nav a.calculator-apps {
@@ -121,6 +125,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       padding: 30px;
       margin-bottom: 30px;
+      background-color: #424242;
     }
 
     .app-section h2 {
@@ -143,7 +148,8 @@
     }
 
     .app-section img {
-      max-width: 400px;
+      max-width: 100%;
+      height: auto;
       margin-bottom: 10px;
       border-radius: 8px;
     }
@@ -164,10 +170,6 @@
     }
 
     /* Section Specific Colors */
-    #calculator-apps {
-      background-color: #424242;
-    }
-
     #calculator-apps h2 {
       color: #bb86fc;
       border-bottom: 2px solid #bb86fc;
@@ -217,6 +219,39 @@
 
     footer a:hover {
       text-decoration: underline;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+
+      .title-container h1 {
+        font-size: 24px;
+      }
+
+      .title-container h2 {
+        font-size: 18px;
+      }
+
+      .logo-container img {
+        max-width: 100px;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        flex: none;
+        max-width: none;
+        width: 100%;
+      }
+
+      .app-section {
+        padding: 20px;
+      }
     }
   </style>
 </head>
