@@ -19,8 +19,9 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #2c2c2c;
-      color: #e0e0e0;
+      background-color: #1f1f1f;
+      color: #f5f5f5;
+      line-height: 1.6;
     }
 
     .container {
@@ -31,16 +32,16 @@
 
     /* Header Styles */
     header {
-      background-color: #333;
+      background-color: #282828;
       color: #ffffff;
       padding: 20px;
-      border-radius: 10px 10px 0 0;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 0;
       flex-wrap: wrap;
+      margin-bottom: 0;
     }
 
     .title-container {
@@ -51,19 +52,18 @@
 
     .title-container h1 {
       margin: 0;
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 700;
       text-align: left;
-      white-space: nowrap;
+      color: #ffffff;
     }
 
     .title-container h2 {
       margin: 0;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 400;
       text-align: left;
-      color: #f5725d;
-      white-space: nowrap;
+      color: #ff6b6b;
     }
 
     .logo-container {
@@ -78,12 +78,12 @@
 
     /* Navigation Styles */
     nav {
-      background-color: #3e3d3d;
+      background-color: #333;
       padding: 10px;
       text-align: center;
-      border-radius: 0 0 10px 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-bottom: 30px;
+      border-radius: 0 0 12px 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      margin-bottom: 40px;
       margin-top: 0;
       display: flex;
       flex-wrap: wrap;
@@ -92,51 +92,53 @@
 
     nav a {
       text-decoration: none;
-      padding: 10px 20px;
-      margin: 5px;
-      border-radius: 5px;
+      padding: 8px 16px; /* Reduced padding */
+      margin: 3px; /* Reduced margin */
+      border-radius: 6px;
       font-weight: 500;
       transition: background-color 0.3s ease, color 0.3s ease;
-      flex: 1 1 200px;
-      max-width: 200px;
+      flex: 1 1 150px;
+      max-width: 150px;
     }
 
     nav a.calculator-apps {
-      color: #bb86fc;
+      color: #8e44ad;
     }
 
     nav a.single-switch-apps {
-      color: #03dac6;
+      color: #16a085;
     }
 
     nav a.microcontroller-devices {
-      color: #ffa726;
+      color: #d35400;
     }
 
     nav a.experimental-projects {
-      color: #82b1ff;
+      color: #2980b9;
     }
 
     nav a:hover {
-      background-color: #555;
+      background-color: #444;
       color: #ffffff;
     }
 
     /* App Section Styles */
     .app-section {
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       padding: 30px;
-      margin-bottom: 30px;
-      background-color: #424242;
+      margin-bottom: 40px;
+      background-color: #292929;
     }
 
     .app-section h2 {
       margin-top: 0;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
-      padding-bottom: 10px;
+      padding-bottom: 12px;
       margin-bottom: 20px;
+      color: #ffffff;
+      border-bottom: 2px solid currentColor;
     }
 
     .app-section ul {
@@ -150,59 +152,56 @@
       text-align: center;
     }
 
-    .app-section img {
+    /* Project Card Styles */
+    .project-card {
+      background-color: #3a3a3a;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      margin: 0 auto 20px auto;
+      max-width: 400px;
+    }
+
+    .project-card img {
       max-width: 100%;
       height: auto;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       border-radius: 8px;
     }
 
-    .app-section a {
-      color: #e0e0e0;
+    .project-card a {
+      color: #ffffff;
+      background-color: #3e8e41; /* More pronounced button color */
       text-decoration: none;
-      font-size: 18px;
-      font-weight: 500;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      padding: 10px;
-      display: block;
-      border-radius: 5px;
+      font-size: 20px; /* Larger font size */
+      font-weight: 600;
+      padding: 15px 20px; /* Increased padding for emphasis */
+      display: inline-block;
+      border-radius: 8px;
+      transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease; /* Added transform for hover effect */
     }
 
-    .app-section a:hover {
-      background-color: #555;
+    .project-card a:hover {
+      background-color: #45a049; /* Lighter green on hover */
+      transform: scale(1.05); /* Slightly enlarge on hover */
+      color: #ffffff;
     }
 
     /* Section Specific Colors */
     #calculator-apps h2 {
-      color: #bb86fc;
-      border-bottom: 2px solid #bb86fc;
-    }
-
-    #single-switch-apps {
-      background-color: #3c3c3c;
+      color: #8e44ad;
     }
 
     #single-switch-apps h2 {
-      color: #03dac6;
-      border-bottom: 2px solid #03dac6;
-    }
-
-    #microcontroller-devices {
-      background-color: #484848;
+      color: #16a085;
     }
 
     #microcontroller-devices h2 {
-      color: #ffa726;
-      border-bottom: 2px solid #ffa726;
-    }
-
-    #experimental-projects {
-      background-color: #505050;
+      color: #d35400;
     }
 
     #experimental-projects h2 {
-      color: #82b1ff;
-      border-bottom: 2px solid #82b1ff;
+      color: #2980b9;
     }
 
     /* Credit Styles */
@@ -212,11 +211,13 @@
       font-size: 14px;
       color: #aaaaaa;
       border-top: 1px solid #444;
-      margin-top: 30px;
+      margin-top: 40px;
+      background-color: #1a1a1a;
+      border-radius: 0 0 12px 12px;
     }
 
     footer a {
-      color: #03dac6;
+      color: #16a085;
       text-decoration: none;
     }
 
@@ -231,11 +232,11 @@
       }
 
       .title-container h1 {
-        font-size: 20px;
+        font-size: 22px;
       }
 
       .title-container h2 {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .logo-container img {
@@ -281,16 +282,22 @@
       <h2>Calculator Apps</h2>
       <ul>
         <li>
-          <img src="image1.png" alt="CVI Range Rating II Calculator Screenshot">
-          <a href="https://microswitchers.github.io/RangeCalc/">CVI Range Rating II Calculator</a>
+          <div class="project-card">
+            <img src="image1.png" alt="CVI Range Rating II Calculator Screenshot">
+            <a href="https://microswitchers.github.io/RangeCalc/">CVI Range Rating II Calculator</a>
+          </div>
         </li>
         <li>
-          <img src="image2.png" alt="Age by Weeks and Category Calculator Screenshot">
-          <a href="https://microswitchers.github.io/agebyweekscalc/">Age by Weeks and Category Calculator</a>
+          <div class="project-card">
+            <img src="image2.png" alt="Age by Weeks and Category Calculator Screenshot">
+            <a href="https://microswitchers.github.io/agebyweekscalc/">Age by Weeks and Category Calculator</a>
+          </div>
         </li>
         <li>
-          <img src="image3.png" alt="Date Incrementing Calendar Screenshot">
-          <a href="https://microswitchers.github.io/datecyclecal/">Date Incrementing Calendar</a>
+          <div class="project-card">
+            <img src="image3.png" alt="Date Incrementing Calendar Screenshot">
+            <a href="https://microswitchers.github.io/datecyclecal/">Date Incrementing Calendar</a>
+          </div>
         </li>
       </ul>
     </section>
@@ -299,16 +306,22 @@
       <h2>Single Switch Apps</h2>
       <ul>
         <li>
-          <img src="image4.png" alt="Cause and Effect Fireworks Screenshot">
-          <a href="https://microswitchers.github.io/fireworks/">Cause and Effect Fireworks</a>
+          <div class="project-card">
+            <img src="image4.png" alt="Cause and Effect Fireworks Screenshot">
+            <a href="https://microswitchers.github.io/fireworks/">Cause and Effect Fireworks</a>
+          </div>
         </li>
         <li>
-          <img src="image5.png" alt="Cause and Effect Sensory Bag Screenshot">
-          <a href="https://microswitchers.github.io/sensorybag/">Cause and Effect Sensory Bag</a>
+          <div class="project-card">
+            <img src="image5.png" alt="Cause and Effect Sensory Bag Screenshot">
+            <a href="https://microswitchers.github.io/sensorybag/">Cause and Effect Sensory Bag</a>
+          </div>
         </li>
         <li>
-          <img src="image6.png" alt="Cause and Effect Ball Drop Screenshot">
-          <a href="https://microswitchers.github.io/bouncingballs/">Cause and Effect Ball Drop</a>
+          <div class="project-card">
+            <img src="image6.png" alt="Cause and Effect Ball Drop Screenshot">
+            <a href="https://microswitchers.github.io/bouncingballs/">Cause and Effect Ball Drop</a>
+          </div>
         </li>
       </ul>
     </section>
@@ -317,8 +330,10 @@
       <h2>Microcontroller Devices</h2>
       <ul>
         <li>
-          <img src="microcontroller.png" alt="Microcontroller Device Screenshot">
-          <a href="https://github.com/MicroSwitchers/3-Function-Cause-and-Effect-Single-Switch-Port">3-Function Cause and Effect Single Switch Port</a>
+          <div class="project-card">
+            <img src="microcontroller.png" alt="Microcontroller Device Screenshot">
+            <a href="https://github.com/MicroSwitchers/3-Function-Cause-and-Effect-Single-Switch-Port">3-Function Cause and Effect Single Switch Port</a>
+          </div>
         </li>
       </ul>
     </section>
@@ -327,16 +342,22 @@
       <h2>Experimental Projects</h2>
       <ul>
         <li>
-          <img src="buttontest.png" alt="Assistive Device Activation Tester Screenshot">
-          <a href="https://microswitchers.github.io/SwitchandButtonTester/">Assistive Device Activation Tester</a>
+          <div class="project-card">
+            <img src="buttontest.png" alt="Assistive Device Activation Tester Screenshot">
+            <a href="https://microswitchers.github.io/SwitchandButtonTester/">Assistive Device Activation Tester</a>
+          </div>
         </li>
         <li>
-          <img src="appointmentreminder.png" alt="Appointment Reminder App Screenshot">
-          <a href="https://microswitchers.github.io/AppointmentReminderApp/">Appointment Reminder App</a>
+          <div class="project-card">
+            <img src="appointmentreminder.png" alt="Appointment Reminder App Screenshot">
+            <a href="https://microswitchers.github.io/AppointmentReminderApp/">Appointment Reminder App</a>
+          </div>
         </li>
         <li>
-          <img src="braille.png" alt="Braille Writer Simulator Screenshot">
-          <a href="https://microswitchers.github.io/braillesim/">Braille Writer Simulator</a>
+          <div class="project-card">
+            <img src="braille.png" alt="Braille Writer Simulator Screenshot">
+            <a href="https://microswitchers.github.io/braillesim/">Braille Writer Simulator</a>
+          </div>
         </li>
       </ul>
     </section>
