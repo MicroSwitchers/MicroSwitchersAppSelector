@@ -223,6 +223,8 @@
       display: inline-block;
       border-radius: 8px;
       transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+      margin-top: 20px; /* Ensure more space above the button */
+      margin-bottom: 20px; /* Ensure more space below the button */
     }
 
     .project-card a:hover {
@@ -318,14 +320,20 @@
         max-width: 100%; /* Reset max-width */
       }
 
-      .project-card img, .project-card-content {
-        max-width: 100%; /* Ensure image and content take full width */
+      .project-card img {
+        max-width: 100%; /* Ensure image takes full width on smaller screens */
         margin-left: 0; /* Reset margin */
+        margin-bottom: 20px; /* Ensure space between image and other content */
       }
 
       .project-card-content {
         margin-top: 20px; /* Add margin between image and content */
         text-align: center; /* Center-align text on smaller screens for better appearance */
+      }
+
+      .project-card a {
+        margin-top: 20px; /* Ensure more space above the button */
+        margin-bottom: 20px; /* Ensure more space below the button */
       }
     }
   </style>
@@ -509,7 +517,7 @@
               <p>A minimal image canvas designed to be simple and flexible to import images and text for use with a gaze tracking device overlay. This requires a gaze tracking device with its own overlay software. OBS studio can be used to record a video of the gaze data.</p>
               <a href="https://microswitchers.github.io/gazecanvas/">Try GazeCanvas</a>
             </div>
-            <img src="image 7.png" alt="GazeCanvas App Screenshot">
+            <img src="image7.png" alt="GazeCanvas App Screenshot">
           </div>
         </li>
       </ul>
