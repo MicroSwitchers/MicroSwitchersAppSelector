@@ -193,7 +193,7 @@
     }
 
     .project-card img {
-      max-width: 50%; /* Image takes half the space */
+      max-width: 45%; /* Slightly reduced image size */
       height: auto;
       margin-left: 20px; /* Space between image and content */
       border-radius: 8px;
@@ -220,9 +220,9 @@
       color: #ffffff;
       background-color: #3e8e41;
       text-decoration: none;
-      font-size: 20px;
+      font-size: 18px; /* Reduced button text size slightly for mobile */
       font-weight: 600;
-      padding: 15px 20px;
+      padding: 12px 18px; /* Reduced padding for smaller buttons */
       display: inline-block;
       border-radius: 8px;
       transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
@@ -321,14 +321,28 @@
         max-width: 100%; /* Reset max-width */
       }
 
-      .project-card img, .project-card-content {
+      .project-card img {
         max-width: 100%; /* Ensure image and content take full width */
         margin-left: 0; /* Reset margin */
+        margin-top: 20px; /* Add space above image */
       }
 
       .project-card-content {
-        margin-top: 20px; /* Add margin between image and content */
+        max-width: 100%; /* Content takes full width */
         text-align: center; /* Center-align text on smaller screens for better appearance */
+      }
+
+      .project-card h3 {
+        font-size: 18px; /* Slightly reduce the font size */
+      }
+
+      .project-card p {
+        font-size: 14px; /* Slightly reduce the font size */
+      }
+
+      .project-card a {
+        font-size: 16px; /* Slightly reduce button text size */
+        padding: 10px 16px; /* Reduce padding for smaller screens */
       }
     }
   </style>
