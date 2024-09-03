@@ -85,18 +85,42 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
       margin-bottom: 40px;
       margin-top: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    nav a {
+    /* Hamburger Menu Styles */
+    .menu-icon {
+      display: none;
+      cursor: pointer;
+      padding: 10px;
+      color: #ffffff;
+    }
+
+    .menu-icon div {
+      width: 25px;
+      height: 3px;
+      background-color: #ffffff;
+      margin: 5px 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 3px;
+    }
+
+    nav ul li a {
       text-decoration: none;
       padding: 8px 16px;
-      margin: 3px;
       border-radius: 6px;
       font-weight: 500;
       transition: background-color 0.3s ease, color 0.3s ease;
@@ -105,27 +129,27 @@
       color: #ffffff;
     }
 
-    nav a.calculator-apps {
+    nav ul li a.calculator-apps {
       color: #8e44ad;
     }
 
-    nav a.braille-apps {
-      color: #b03a2e; /* Deep burgundy color for Braille section */
+    nav ul li a.braille-apps {
+      color: #b03a2e;
     }
 
-    nav a.single-switch-apps {
+    nav ul li a.single-switch-apps {
       color: #16a085;
     }
 
-    nav a.microcontroller-devices {
+    nav ul li a.microcontroller-devices {
       color: #d35400;
     }
 
-    nav a.experimental-projects {
+    nav ul li a.experimental-projects {
       color: #2980b9;
     }
 
-    nav a:hover {
+    nav ul li a:hover {
       background-color: #444;
       color: #ffffff;
     }
@@ -186,22 +210,22 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       padding: 20px;
       margin: 0 auto 20px auto;
-      max-width: 800px; /* Increased to allow space for side-by-side layout */
+      max-width: 800px;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Distributes space between image and content */
+      justify-content: space-between;
     }
 
     .project-card img {
-      max-width: 45%; /* Slightly reduced image size */
+      max-width: 45%;
       height: auto;
-      margin-left: 20px; /* Space between image and content */
+      margin-left: 20px;
       border-radius: 8px;
     }
 
     .project-card-content {
-      max-width: 50%; /* Content takes half the space */
-      text-align: left; /* Left-align text for accessibility */
+      max-width: 50%;
+      text-align: left;
     }
 
     .project-card h3 {
@@ -220,9 +244,9 @@
       color: #ffffff;
       background-color: #3e8e41;
       text-decoration: none;
-      font-size: 18px; /* Reduced button text size slightly for mobile */
+      font-size: 18px;
       font-weight: 600;
-      padding: 12px 18px; /* Reduced padding for smaller buttons */
+      padding: 12px 18px;
       display: inline-block;
       border-radius: 8px;
       transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
@@ -248,7 +272,7 @@
     }
 
     #braille h2 {
-      color: #b03a2e; /* Matching deep burgundy color for Braille heading */
+      color: #b03a2e;
     }
 
     #single-switch-apps h2 {
@@ -302,14 +326,28 @@
         max-width: 80px;
       }
 
-      nav {
+      nav ul {
+        display: none;
         flex-direction: column;
       }
 
-      nav a {
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      nav ul li {
+        margin: 0;
+      }
+
+      nav ul li a {
         flex: none;
         max-width: none;
         width: 100%;
+        padding: 12px;
       }
 
       .app-section {
@@ -317,32 +355,32 @@
       }
 
       .project-card {
-        flex-direction: column; /* Stack content vertically on smaller screens */
-        max-width: 100%; /* Reset max-width */
+        flex-direction: column;
+        max-width: 100%;
       }
 
       .project-card img {
-        max-width: 100%; /* Ensure image and content take full width */
-        margin-left: 0; /* Reset margin */
-        margin-top: 20px; /* Add space above image */
+        max-width: 100%;
+        margin-left: 0;
+        margin-top: 20px;
       }
 
       .project-card-content {
-        max-width: 100%; /* Content takes full width */
-        text-align: center; /* Center-align text on smaller screens for better appearance */
+        max-width: 100%;
+        text-align: center;
       }
 
       .project-card h3 {
-        font-size: 18px; /* Slightly reduce the font size */
+        font-size: 18px;
       }
 
       .project-card p {
-        font-size: 14px; /* Slightly reduce the font size */
+        font-size: 14px;
       }
 
       .project-card a {
-        font-size: 16px; /* Slightly reduce button text size */
-        padding: 10px 16px; /* Reduce padding for smaller screens */
+        font-size: 16px;
+        padding: 10px 16px;
       }
     }
   </style>
@@ -360,11 +398,18 @@
     </header>
 
     <nav>
-      <a href="#calculator-apps" class="calculator-apps">Calculator Apps</a>
-      <a href="#braille" class="braille-apps">Braille Apps</a>
-      <a href="#single-switch-apps" class="single-switch-apps">Single Switch Apps</a>
-      <a href="#microcontroller-devices" class="microcontroller-devices">Microcontroller Devices</a>
-      <a href="#experimental-projects" class="experimental-projects">Experimental Projects</a>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul id="menu">
+        <li><a href="#calculator-apps" class="calculator-apps">Calculator Apps</a></li>
+        <li><a href="#braille" class="braille-apps">Braille Apps</a></li>
+        <li><a href="#single-switch-apps" class="single-switch-apps">Single Switch Apps</a></li>
+        <li><a href="#microcontroller-devices" class="microcontroller-devices">Microcontroller Devices</a></li>
+        <li><a href="#experimental-projects" class="experimental-projects">Experimental Projects</a></li>
+      </ul>
     </nav>
 
     <!-- Back-to-Top Button -->
@@ -543,6 +588,11 @@
   </div>
 
   <script>
+    function toggleMenu() {
+      let menu = document.getElementById('menu');
+      menu.classList.toggle('show');
+    }
+
     window.onscroll = function() {
       let button = document.getElementById("back-to-top");
       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
