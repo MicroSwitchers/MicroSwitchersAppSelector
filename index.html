@@ -76,7 +76,7 @@
       border-radius: 10px;
     }
 
-    /* Navigation Styles */
+    /* Sticky Navigation Bar */
     nav {
       background-color: #333;
       padding: 10px;
@@ -88,6 +88,9 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav a {
@@ -99,10 +102,15 @@
       transition: background-color 0.3s ease, color 0.3s ease;
       flex: 1 1 150px;
       max-width: 150px;
+      color: #ffffff;
     }
 
     nav a.calculator-apps {
       color: #8e44ad;
+    }
+
+    nav a.braille-apps {
+      color: #b03a2e; /* Deep burgundy color for Braille section */
     }
 
     nav a.single-switch-apps {
@@ -120,6 +128,25 @@
     nav a:hover {
       background-color: #444;
       color: #ffffff;
+    }
+
+    /* Back-to-Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #444;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+    }
+
+    #back-to-top.show {
+      display: block;
     }
 
     /* App Section Styles */
@@ -159,14 +186,34 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       padding: 20px;
       margin: 0 auto 20px auto;
-      max-width: 400px;
+      max-width: 800px; /* Increased to allow space for side-by-side layout */
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Distributes space between image and content */
     }
 
     .project-card img {
-      max-width: 100%;
+      max-width: 50%; /* Image takes half the space */
       height: auto;
-      margin-bottom: 12px;
+      margin-left: 20px; /* Space between image and content */
       border-radius: 8px;
+    }
+
+    .project-card-content {
+      max-width: 50%; /* Content takes half the space */
+      text-align: left; /* Left-align text for accessibility */
+    }
+
+    .project-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .project-card p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #dddddd;
     }
 
     .project-card a {
@@ -187,9 +234,21 @@
       color: #ffffff;
     }
 
+    /* Section Divider */
+    .section-divider {
+      width: 100%;
+      height: 2px;
+      background-color: #444;
+      margin: 40px 0;
+    }
+
     /* Section Specific Colors */
     #calculator-apps h2 {
       color: #8e44ad;
+    }
+
+    #braille h2 {
+      color: #b03a2e; /* Matching deep burgundy color for Braille heading */
     }
 
     #single-switch-apps h2 {
@@ -256,6 +315,21 @@
       .app-section {
         padding: 20px;
       }
+
+      .project-card {
+        flex-direction: column; /* Stack content vertically on smaller screens */
+        max-width: 100%; /* Reset max-width */
+      }
+
+      .project-card img, .project-card-content {
+        max-width: 100%; /* Ensure image and content take full width */
+        margin-left: 0; /* Reset margin */
+      }
+
+      .project-card-content {
+        margin-top: 20px; /* Add margin between image and content */
+        text-align: center; /* Center-align text on smaller screens for better appearance */
+      }
     }
   </style>
 </head>
@@ -273,100 +347,179 @@
 
     <nav>
       <a href="#calculator-apps" class="calculator-apps">Calculator Apps</a>
+      <a href="#braille" class="braille-apps">Braille Apps</a>
       <a href="#single-switch-apps" class="single-switch-apps">Single Switch Apps</a>
       <a href="#microcontroller-devices" class="microcontroller-devices">Microcontroller Devices</a>
       <a href="#experimental-projects" class="experimental-projects">Experimental Projects</a>
     </nav>
 
+    <!-- Back-to-Top Button -->
+    <button id="back-to-top" onclick="scrollToTop()">↑ Back to Top</button>
+
+    <!-- Calculator Apps Section -->
     <section class="app-section" id="calculator-apps">
       <h2>Calculator Apps</h2>
       <ul>
         <li>
           <div class="project-card">
+            <div class="project-card-content">
+              <h3>CVI Range Rating II Calculator</h3>
+              <p>This calculator assists with double-checking assessment totals for the CVI Range Rating II method. This process is based on the work of Dr. Roman-Lantzy.</p>
+              <a href="https://microswitchers.github.io/RangeCalc/">Try the CVI Range Rating II Calculator</a>
+            </div>
             <img src="image1.png" alt="CVI Range Rating II Calculator Screenshot">
-            <a href="https://microswitchers.github.io/RangeCalc/">CVI Range Rating II Calculator</a>
           </div>
         </li>
         <li>
           <div class="project-card">
+            <div class="project-card-content">
+              <h3>Age by Weeks and Category Calculator</h3>
+              <p>A tool for calculating a child's age in weeks, and their age category. The date input has predictive complete, a universal accommodation that speeds up input and accepts multiple date formats.</p>
+              <a href="https://microswitchers.github.io/agebyweekscalc/">Try the Age by Weeks and Category Calculator</a>
+            </div>
             <img src="image2.png" alt="Age by Weeks and Category Calculator Screenshot">
-            <a href="https://microswitchers.github.io/agebyweekscalc/">Age by Weeks and Category Calculator</a>
           </div>
         </li>
         <li>
           <div class="project-card">
+            <div class="project-card-content">
+              <h3>Date Incrementing Calendar</h3>
+              <p>A calendar app that increments dates based on various intervals for calculating appointment cycles.</p>
+              <a href="https://microswitchers.github.io/datecyclecal/">Try the Date Incrementing Calendar</a>
+            </div>
             <img src="image3.png" alt="Date Incrementing Calendar Screenshot">
-            <a href="https://microswitchers.github.io/datecyclecal/">Date Incrementing Calendar</a>
           </div>
         </li>
       </ul>
     </section>
 
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Braille Section -->
+    <section class="app-section" id="braille">
+      <h2>Braille</h2>
+      <ul>
+        <li>
+          <div class="project-card">
+            <div class="project-card-content">
+              <h3>Braille Writer Simulator</h3>
+              <p>An interactive simulator for practicing input with a Mechanical Braille Writer. This app emulates the features and limitations of a Braille writer to build muscle memory and conserve paper waste.</p>
+              <a href="https://microswitchers.github.io/braillesim/">Try the Braille Writer Simulator</a>
+            </div>
+            <img src="braille.png" alt="Braille Writer Simulator Screenshot">
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Single Switch Apps Section -->
     <section class="app-section" id="single-switch-apps">
       <h2>Single Switch Apps</h2>
       <ul>
         <li>
           <div class="project-card">
+            <div class="project-card-content">
+              <h3>Cause and Effect Fireworks</h3>
+              <p>An interactive app designed to create visual fireworks effects in response to adapted single switch activation.</p>
+              <a href="https://microswitchers.github.io/fireworks/">Try Cause and Effect Fireworks</a>
+            </div>
             <img src="image4.png" alt="Cause and Effect Fireworks Screenshot">
-            <a href="https://microswitchers.github.io/fireworks/">Cause and Effect Fireworks</a>
           </div>
         </li>
         <li>
           <div class="project-card">
+            <div class="project-card-content">
+              <h3>Cause and Effect Sensory Bag</h3>
+              <p>A sensory app where users activate a visual sensory experience using a single switch.</p>
+              <a href="https://microswitchers.github.io/sensorybag/">Try Cause and Effect Sensory Bag</a>
+            </div>
             <img src="image5.png" alt="Cause and Effect Sensory Bag Screenshot">
-            <a href="https://microswitchers.github.io/sensorybag/">Cause and Effect Sensory Bag</a>
           </div>
         </li>
         <li>
           <div class="project-card">
+            <div class="project-card-content">
+              <h3>Cause and Effect Ball Drop</h3>
+              <p>An app that provides calming, colorful balls that respond to single switch inputs.</p>
+              <a href="https://microswitchers.github.io/bouncingballs/">Try Cause and Effect Ball Drop</a>
+            </div>
             <img src="image6.png" alt="Cause and Effect Ball Drop Screenshot">
-            <a href="https://microswitchers.github.io/bouncingballs/">Cause and Effect Ball Drop</a>
           </div>
         </li>
       </ul>
     </section>
 
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Microcontroller Devices Section -->
     <section class="app-section" id="microcontroller-devices">
       <h2>Microcontroller Devices</h2>
       <ul>
         <li>
           <div class="project-card">
+            <div class="project-card-content">
+              <h3>3-Function Cause and Effect Single Switch Port</h3>
+              <p>A microcontroller-based project that offers three different cause-and-effect functions for single switch users.</p>
+              <ul>
+                <li>Regular Left Mouse Click (click-hold-release)</li>
+                <li>Direct Left Mouse Click (click-auto release)</li>
+                <li>Timed Left Mouse Click (click-custom timer- auto release)</li>
+              </ul>
+              <a href="https://github.com/MicroSwitchers/3-Function-Cause-and-Effect-Single-Switch-Port">Learn More</a>
+            </div>
             <img src="microcontroller.png" alt="Microcontroller Device Screenshot">
-            <a href="https://github.com/MicroSwitchers/3-Function-Cause-and-Effect-Single-Switch-Port">3-Function Cause and Effect Single Switch Port</a>
           </div>
         </li>
       </ul>
     </section>
 
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Experimental Projects Section -->
     <section class="app-section" id="experimental-projects">
       <h2>Experimental Projects</h2>
       <ul>
         <li>
           <div class="project-card">
+            <div class="project-card-content">
+              <h3>Assistive Device Activation Tester</h3>
+              <p>A tool for testing the activation of assistive devices, ensuring they respond correctly to mouse and touch screen inputs.</p>
+              <a href="https://microswitchers.github.io/SwitchandButtonTester/">Try the Assistive Device Activation Tester</a>
+            </div>
             <img src="buttontest.png" alt="Assistive Device Activation Tester Screenshot">
-            <a href="https://microswitchers.github.io/SwitchandButtonTester/">Assistive Device Activation Tester</a>
           </div>
         </li>
         <li>
           <div class="project-card">
+            <div class="project-card-content">
+              <h3>Appointment Reminder App</h3>
+              <p>A visual timer that provides alerts for upcoming appointments. Meant to be left open on a desktop computer to give a persistent visual reminder.</p>
+              <a href="https://microswitchers.github.io/AppointmentReminderApp/">Try the Appointment Reminder App</a>
+            </div>
             <img src="appointmentreminder.png" alt="Appointment Reminder App Screenshot">
-            <a href="https://microswitchers.github.io/AppointmentReminderApp/">Appointment Reminder App</a>
           </div>
         </li>
         <li>
           <div class="project-card">
-            <img src="braille.png" alt="Braille Writer Simulator Screenshot">
-            <a href="https://microswitchers.github.io/braillesim/">Braille Writer Simulator</a>
-          </div>
-        </li>
-        <li>
-          <div class="project-card">
+            <div class="project-card-content">
+              <h3>GazeCanvas</h3>
+              <p>A minimal image canvas designed to be simple and flexible to import images and text for use with a gaze tracking device overlay. This requires a gaze tracking device with its own overlay software. OBS studio can be used to record a video of the gaze data.</p>
+              <a href="https://microswitchers.github.io/gazecanvas/">Try GazeCanvas</a>
+            </div>
             <img src="image 7.png" alt="GazeCanvas App Screenshot">
-            <a href="https://microswitchers.github.io/gazecanvas/">GazeCanvas</a>
           </div>
         </li>
       </ul>
     </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
 
     <footer>
       Created by Niall Brown - Early Childhood Vision Consultant (ECVC), with assistance from AI.
@@ -374,5 +527,20 @@
       <a href="https://github.com/MicroSwitchers?tab=repositories">View more on GitHub</a>
     </footer>
   </div>
+
+  <script>
+    window.onscroll = function() {
+      let button = document.getElementById("back-to-top");
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        button.classList.add("show");
+      } else {
+        button.classList.remove("show");
+      }
+    };
+    
+    function scrollToTop() {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  </script>
 </body>
 </html>
