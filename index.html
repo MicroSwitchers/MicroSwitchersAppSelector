@@ -107,7 +107,7 @@
     }
 
     nav a.braille-apps {
-      color: #b03a2e; /* Deep burgundy color for Braille section */
+      color: #b03a2e;
     }
 
     nav a.single-switch-apps {
@@ -183,22 +183,22 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       padding: 20px;
       margin: 0 auto 20px auto;
-      max-width: 800px; /* Increased to allow space for side-by-side layout */
+      max-width: 800px;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Distributes space between image and content */
+      justify-content: space-between;
     }
 
     .project-card img {
-      max-width: 50%; /* Image takes half the space */
+      max-width: 50%;
       height: auto;
-      margin-left: 20px; /* Space between image and content */
+      margin-left: 20px;
       border-radius: 8px;
     }
 
     .project-card-content {
-      max-width: 50%; /* Content takes half the space */
-      text-align: left; /* Left-align text for accessibility */
+      max-width: 50%;
+      text-align: left;
     }
 
     .project-card h3 {
@@ -223,8 +223,8 @@
       display: inline-block;
       border-radius: 8px;
       transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
-      margin-top: 20px; /* Ensure more space above the button */
-      margin-bottom: 20px; /* Ensure more space below the button */
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
 
     .project-card a:hover {
@@ -247,7 +247,7 @@
     }
 
     #braille h2 {
-      color: #b03a2e; /* Matching deep burgundy color for Braille heading */
+      color: #b03a2e;
     }
 
     #single-switch-apps h2 {
@@ -260,6 +260,23 @@
 
     #experimental-projects h2 {
       color: #2980b9;
+    }
+
+    /* Image Container for stacking HarmonyHopper images */
+    .image-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+
+    .stacked-image {
+      margin-top: 10px;
     }
 
     /* Credit Styles */
@@ -316,24 +333,24 @@
       }
 
       .project-card {
-        flex-direction: column; /* Stack content vertically on smaller screens */
-        max-width: 100%; /* Reset max-width */
+        flex-direction: column;
+        max-width: 100%;
       }
 
       .project-card img {
-        max-width: 100%; /* Ensure image takes full width on smaller screens */
-        margin-left: 0; /* Reset margin */
-        margin-bottom: 20px; /* Ensure space between image and other content */
+        max-width: 100%;
+        margin-left: 0;
+        margin-bottom: 20px;
       }
 
       .project-card-content {
-        margin-top: 20px; /* Add margin between image and content */
-        text-align: left; /* Ensure text is left-aligned on smaller screens */
+        margin-top: 20px;
+        text-align: left;
       }
 
       .project-card a {
-        margin-top: 20px; /* Ensure more space above the button */
-        margin-bottom: 20px; /* Ensure more space below the button */
+        margin-top: 20px;
+        margin-bottom: 20px;
       }
     }
   </style>
@@ -408,11 +425,21 @@
         <li>
           <div class="project-card">
             <div class="project-card-content">
-              <h3>Braille Writer Simulator</h3>
+              <h3>Mechanical Braille Writer Simulator</h3>
               <p>An interactive simulator for practicing input with a Mechanical Braille Writer. This app emulates the features and limitations of a Braille writer to build muscle memory and conserve paper waste.</p>
-              <a href="https://microswitchers.github.io/braillesim/">Use the Braille Writer Simulator</a>
+              <a href="https://microswitchers.github.io/braillesim/">Use the Mechanical Braille Writer Simulator</a>
             </div>
-            <img src="braille.png" alt="Braille Writer Simulator Screenshot">
+            <img src="braille.png" alt="Mechanical Braille Writer Simulator Screenshot">
+          </div>
+        </li>
+        <li>
+          <div class="project-card">
+            <div class="project-card-content">
+              <h3>SixKey - Braille Practice Pad</h3>
+              <p>A minimal Braille writing pad for practicing 6 key input with a computer keyboard. Simple controls are provided for Unicode import and export (.txt) format that can be read in any text reader.</p>
+              <a href="https://microswitchers.github.io/sixkey/">Use the SixKey - Braille Practice Pad</a>
+            </div>
+            <img src="image8.png" alt="SixKey - Braille Practice Pad Screenshot">
           </div>
         </li>
       </ul>
@@ -453,6 +480,32 @@
               <a href="https://microswitchers.github.io/bouncingballs/">Use Cause and Effect Ball Drop</a>
             </div>
             <img src="image6.png" alt="Cause and Effect Ball Drop Screenshot">
+          </div>
+        </li>
+
+        <!-- New Apps -->
+        <li>
+          <div class="project-card">
+            <div class="project-card-content">
+              <h3>AstroBounce</h3>
+              <p>A sensory app where users activate a visual sensory experience using a single switch.</p>
+              <a href="https://microswitchers.github.io/Astro-Bounce/">Use AstroBounce</a>
+            </div>
+            <img src="image9.png" alt="AstroBounce Screenshot">
+          </div>
+        </li>
+
+        <li>
+          <div class="project-card">
+            <div class="project-card-content">
+              <h3>HarmonyHopper</h3>
+              <p>A music scanning toy controlled by an adapted single switch.</p>
+              <a href="https://microswitchers.github.io/HarmonyHopper/">Use HarmonyHopper</a>
+            </div>
+            <div class="image-container">
+              <img src="image10.png" alt="HarmonyHopper Screenshot 1">
+              <img src="image11.png" alt="HarmonyHopper Screenshot 2" class="stacked-image">
+            </div>
           </div>
         </li>
       </ul>
